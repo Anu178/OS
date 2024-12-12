@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Person</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Search for Person Details</h2>
+        <form method="get">
+            <div class="form-group">
+                <label for="id">Enter ID:</label>
+                <input type="text" class="form-control" id="id" name="id" placeholder="Enter Person ID">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        
+        {% if person %}
+            <div class="mt-4">
+                <h3>Person Details</h3>
+                <p><strong>ID:</strong> {{ person.id }}</p>
+                <p><strong>Name:</strong> {{ person.name }}</p>
+                <p><strong>Surname:</strong> {{ person.surname }}</p>
+                <p><strong>Mobile Number:</strong> {{ person.mobile_number }}</p>
+            </div>
+        {% elif person is not None %}
+            <div class="mt-4 alert alert-danger">
+                <p>No person found with the given ID.</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

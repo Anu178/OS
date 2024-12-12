@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anusya's Project</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+    .heading{
+        text-align: center;
+        margin-top: 30px;
+        font-family: "Roboto Slab", serif;
+        color: rgb(19, 87, 136);
+    }
+    
+    </style>
+</head>
+<body>
+    <h1 class="heading">Project By Anusya Senthil Kumar</h1>
+    <div class="container mt-5">
+        <h2>Enter Person Details</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <a href="{% url 'search_person' %}" class="btn btn-secondary mt-3">Search for Person</a>
+
+    </div>
+</body>
+</html>

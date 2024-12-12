@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+    <link rel="stylesheet" href="success.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+        body{
+            text-align: center;
+        }
+        .click{
+            margin-top: 50px;
+            font-family: "Roboto Slab", serif;
+            font-size: 20px;
+            
+        }
+        .heading{
+            margin-top: 50px;
+            font-family: "Roboto Slab", serif;
+        }
+        .text{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="heading">Form Submitted Successfully!</h2>
+        <div class="click">
+        <a class="text" href="/" class="btn btn-primary">Submit Another ||</a>
+        <!-- Add the search link here -->
+        <a class="text" href="{% url 'search_person' %}" class="btn btn-secondary">Search for Person</a>
+        </div>
+    </div>
+</body>
+</html>

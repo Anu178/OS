@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-top: 40px;
+            font-size: 32px;
+        }
+
+        /* Form Container */
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Input fields */
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Style the form labels */
+        label {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* CSRF token styling (just for space) */
+        .csrf-token {
+            margin-bottom: 15px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .form-container {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Upload Image</h1>
+
+    <div class="form-container">
+        <h2>Choose an image to upload</h2>
+        
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="csrf-token">
+                {{ form.as_p }}
+            </div>
+            
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+    
+</body>
+</html>

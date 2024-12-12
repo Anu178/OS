@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Images</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-top: 30px;
+        }
+
+        /* Container for images */
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+        }
+
+        /* Individual image item */
+        .image-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .image-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Image styles */
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 200px;
+            border-radius: 5px;
+        }
+
+        /* Delete link styles */
+        .delete-link {
+            display: block;
+            margin-top: 10px;
+            color: #f44336;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+
+        .delete-link:hover {
+            color: #d32f2f;
+        }
+
+        /* Empty state */
+        .empty-message {
+            text-align: center;
+            font-size: 18px;
+            color: #757575;
+            padding: 50px 0;
+        }
+
+        /* Button to upload new image */
+        .upload-btn {
+            display: block;
+            margin: 40px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            width: 200px;
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .upload-btn {
+                width: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>All Uploaded Images</h1>
+
+    <div class="image-container">
+        {% for image in images %}
+            <div class="image-item">
+                <img src="{{ image.image.url }}" alt="Uploaded Image">
+                <a href="{% url 'delete_image' image.id %}" class="delete-link">Delete</a>
+            </div>
+        {% empty %}
+            <p class="empty-message">No images uploaded yet.</p>
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'upload_image' %}" class="upload-btn">Upload New Image</a>
+
+</body>
+</html>

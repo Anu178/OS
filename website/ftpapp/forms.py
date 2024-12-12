@@ -1,5 +1,6 @@
 from django import forms
 from .models import Person
+from .models import UploadedImage
 
 class PersonForm(forms.ModelForm):
     class Meta:
@@ -11,3 +12,8 @@ class PersonForm(forms.ModelForm):
             'surname': forms.TextInput(attrs={'class': 'form-control'}),
             'mobile_number': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
+class ImageUploadForm(forms.ModelForm):
+    class Meta:
+        model = UploadedImage
+        fields = ['image']

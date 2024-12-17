@@ -53,13 +53,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'website.urls'
 
-# website/settings.py
+
 
 # settings.py
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'your_app', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'ftpapp', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

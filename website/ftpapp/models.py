@@ -15,14 +15,14 @@ class Person(models.Model):
 
 
 def image_upload_to(instance, filename):
-    # Create a unique folder for each image upload with its ID
+    
     ext = filename.split('.')[-1]
-    filename = f'{uuid.uuid4().hex}.{ext}'  # Generate a unique filename
-    return os.path.join('uploads/', filename)  # Save in 'uploads/' directory
+    filename = f'{uuid.uuid4().hex}.{ext}'  
+    return os.path.join('uploads/', filename)  
 
 class UploadedImage(models.Model):
-    image = models.ImageField(upload_to=image_upload_to)  # The uploaded image
-    uploaded_at = models.DateTimeField(auto_now_add=True)  # Store when it was uploaded
+    image = models.ImageField(upload_to=image_upload_to)  
+    uploaded_at = models.DateTimeField(auto_now_add=True)  
 
     def __str__(self):
         return str(self.image)
